@@ -1,0 +1,140 @@
+/* ================= Mobile view (default, mobile-first) ================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f1e8;
+  color: #1a1a1a;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+main {
+  width: min(94%, 1000px);
+  margin: 0 auto;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+a {
+  color: #8a1c4a;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  padding: 10px 16px;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* one-column grid with a 10px gap between rows and columns */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 4px solid #2f6b3a;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #1a1a1a;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+figcaption {
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 8%;
+  padding: 0.25em 0.5em;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  background-color: inherit;
+  color: inherit;
+}
+
+/* ================= Tablet view ================= */
+@media (min-width: 772px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  figure {
+    border-radius: 50%;
+  }
+
+  figure:last-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 2 / 1;
+  }
+}
+
+/* ================= Large screen view ================= */
+@media (min-width: 992px) {
+  figure {
+    border-radius: 0;
+  }
+
+  figure:nth-child(3n) {
+    grid-column: 1 / -1;
+    aspect-ratio: 2 / 1;
+  }
+}
+
+/* ================= Reduced motion ================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ================= Dark color scheme ================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #2b2b2b;
+    color: #f2f2f2;
+  }
+
+  a {
+    color: #ffd24d;
+  }
+
+  figure {
+    background-color: #1b1b2f;
+    color: #ffe27a;
+    border-color: #000;
+  }
+}
